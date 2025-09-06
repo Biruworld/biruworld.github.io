@@ -334,7 +334,31 @@
     padding: 1rem 2rem;
     background: transparent;
 }
+
+.nav.scrolled .logoe {
+    filter: brightness(0) saturate(100%);
+    transition: filter 0.3s ease;
+}
+
+.nav.scrolled {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    transition: background 0.3s ease;
+}
     </style>
+    <script>
+        // Change nav style on scroll
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.nav');
+    const heroHeight = document.querySelector('.hero').offsetHeight;
+    
+    if (window.scrollY > heroHeight - 100) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+    </script>
 </head>
 <body>
     <!-- Navigation -->
